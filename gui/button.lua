@@ -1,7 +1,11 @@
+require("utils")
+local vector = require("hump.vector")
+local Class = require("hump.class")
 
-require("gui.menuitem")
+local MenuItem = require("gui.menuitem")
+local Label = require("gui.label")
 
-Button = Class{inherits = Label, function(self, parent, position, size, alignment, children)
+local Button = Class{inherits = Label, function(self, parent, position, size, alignment, children)
     MenuItem.construct(self, parent, position, size, alignment, children)
     self.onSelect = nil
     self.backgroundColor = {11, 11, 11, 255}
@@ -19,3 +23,5 @@ function Button:draw()
     -- love.graphics.print(string.format("%i, %i - %i, %i, %i, %i", x, y, d[1], d[2]. d[3], d[4]), 0, 0)
     -- love.graphics.print(string.format("%i, %i - " .. self.size.x, x, y), 0, 0)
 end
+
+return Button

@@ -1,6 +1,10 @@
-require("gui.guiobject")
+require("utils")
+local vector = require("hump.vector")
+local Class = require("hump.class")
 
-MenuItem = Class{inherits = GUIObject, function(self, parent, position, size, alignment, children)
+local GUIObject = require("gui.guiobject")
+
+local MenuItem = Class{inherits = GUIObject, function(self, parent, position, size, alignment, children)
     GUIObject.construct(self, parent, position, size, alignment, children)
     self.backgroundColor = {11, 11, 11, 255}
     self.activeBackgroundColor = {33, 33, 33, 255}
@@ -11,4 +15,4 @@ MenuItem = Class{inherits = GUIObject, function(self, parent, position, size, al
     self.text = ""
 end}
 
-
+return MenuItem

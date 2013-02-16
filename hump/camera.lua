@@ -27,6 +27,11 @@ THE SOFTWARE.
 local _PATH = (...):match('^(.*[%./])[^%.%/]+$') or ''
 local cos, sin = math.cos, math.sin
 
+local cameras = {}
+function getCurrentCamera()
+	return cameras[1]
+end
+
 local camera = {}
 camera.__index = camera
 
@@ -72,6 +77,7 @@ function camera:zoomTo(zoom)
 end
 
 function camera:attach()
+	table.insert(cameras, 1, self)
 	local cx,cy = love.graphics.getWidth()/(2*self.scale), love.graphics.getHeight()/(2*self.scale)
 	love.graphics.push()
 	love.graphics.scale(self.scale)
@@ -81,6 +87,7 @@ function camera:attach()
 end
 
 function camera:detach()
+	table.remove(cameras, 1)
 	love.graphics.pop()
 end
 

@@ -6,7 +6,7 @@ local AnimationFrame = require("animations.animationframe")
 
 local AnimationSet = Class{function(self, animationKeysTable)
     self.animations = {}
-    self.currentKey = ""
+    self.initialKey = ""
     if animationKeysTable then
         for i = 1, #animationKeysTable, 1 do
             self:addAnimation(animationKeysTable[i].key, animationKeysTable[i].animation)
@@ -15,27 +15,8 @@ local AnimationSet = Class{function(self, animationKeysTable)
 end}
 
 function AnimationSet:getFrame(key, fid)
-
-end
-
-function AnimationSet:update(dt)
-    self:getCurrentAnimation():update(dt)
-end
-
-function AnimationSet:updateKey(key, dt)
-    self:getAnimation(key):update(dt)
-end
-
-function AnimationSet:setKey(key)
-    self.currentKey = key
-end
-
-function AnimationSet:getKey()
-    return self.currentKey
-end
-
-function AnimationSet:getCurrentAnimation()
-    return self.animations[self.currentKey]
+    local a = self:getAnimation(key)
+    return a:getFrame(fid)
 end
 
 function AnimationSet:getAnimation(key)
@@ -47,14 +28,10 @@ function AnimationSet:removeAnimation(key)
 end
 
 function AnimationSet:addAnimation(key, animation)
-    if self.currentKey == "" then
-        self:setKey(key)
+    if self.initialKey == "" then
+        self.initialKey = key
     end
     self.animations[key] = animation
-end
-
-function AnimationSet:getCurrentFrame()
-    return self:getCurrentAnimation():getCurrentFrame()
 end
 
 return AnimationSet

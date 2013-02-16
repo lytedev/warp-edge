@@ -1,7 +1,8 @@
 config = {}
 
 function love.conf(t)
-    t.skipinto = false
+    t.skipintro = true
+    t.skiptogame = true
     t.defaultsettings = true
 
     -- love.graphics.setBackgroundColor(0, 0, 0, 255)
@@ -23,12 +24,12 @@ function love.conf(t)
         -- Functioning Game, Many Bugs
     -- Release X.X>X
         -- Full Game, Minimal Bugs
-    t.identityVersion = "Alpha 1.0"
+    t.identityVersion = "1.1 Alpha"
 
     t.release = false -- Are you crazy or something?
     t.console = true
 
-    t.screen.scaleHeight = 180
+    t.screen.scaleHeight = 180 * 1
     t.screen.width = 640
     t.screen.height = 360
     t.screen.fullscreen = false

@@ -1,0 +1,52 @@
+require("utils")
+local vector = require("hump.vector")
+local Class = require("hump.class")
+
+local Camera = require("hump.camera")
+local AnimationState = require("animations.animationstate")
+
+local Background = Class{inherits = {AnimationState}, function(self, image, animationSet, size, initialKey)
+    AnimationState.construct(self, image, animationSet, size, initialKey)
+    self.alternateFlipsX = false
+    self.alternateFlipsY = false
+    self.offset = vector(0, 0)
+    --self.slide = vector(0, 0)
+    self.slide = vector(10, 10)
+    self.parallax = 4
+end}
+
+function Background:update(dt)
+    AnimationState.update(self, dt)
+    self.offset = self.offset + (self.slide * dt)
+    self.offset = vector(self.offset.x % self.size.x, self.offset.y % self.size.y)
+end
+
+function Background:draw()
+    local c = getCurrentCamera()
+    local pcam = Camera(c.x / self.parallax, c.y / self.parallax, c.scale, c.rot)
+    local scvp = vector(love.graphics.getWidth() / c.scale, love.graphics.getHeight() / c.scale)
+    c:detach()
+    pcam:attach()
+
+    local x, y = pcam:worldCoords(scvp.x, scvp.y)
+    x = scvp.x / 2
+    y = scvp.y / 2
+    local pos = vector(-x, -y)
+
+    local minx = math.floor(c.x / self.size.x / self.parallax) - 1
+    local maxx = minx + (scvp.x / self.size.x) + 2
+    local miny = math.floor(c.y / self.size.y / self.parallax) - 1
+    local maxy = miny + (scvp.y / self.size.y) + 2
+
+    for x = minx, maxx do
+        for y = miny, maxy do
+            local os = vector(self.size.x * x, self.size.y * y)
+            AnimationState.draw(self, pos + os)
+        end
+    end
+
+    pcam:detach()
+    c:attach()
+end
+
+return Background

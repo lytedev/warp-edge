@@ -1,10 +1,14 @@
 require("utils")
-require("hump.vector")
-require("gui.label")
+local vector = require("hump.vector")
+local Class = require("hump.class")
+
+local MenuItem = require("gui.menuitem")
+local Label = require("gui.label")
 
 local titleVersionLabel = Label()
 titleVersionLabel.font = fonts.pixelserif
-titleVersionLabel.text = string.format("%s %s", config.title, config.identityVersion)
+titleVersionLabel.text = string.format("%s - %s\nCopyright (C) 2013 %s - All Rights Reserved",
+    config.title, config.identityVersion, config.author)
 titleVersionLabel.color= {255, 255, 255, 50}
 titleVersionLabel.activeColor = titleVersionLabel.color
 titleVersionLabel.alignment = alignments.bottomleft

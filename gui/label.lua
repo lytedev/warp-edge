@@ -1,6 +1,10 @@
-require("gui.menuitem")
+require("utils")
+local vector = require("hump.vector")
+local Class = require("hump.class")
 
-Label = Class{inherits = MenuItem, function(self, parent, position, size, alignment, children)
+local MenuItem = require("gui.menuitem")
+
+local Label = Class{inherits = MenuItem, function(self, parent, position, size, alignment, children)
     MenuItem.construct(self, parent, position, size, alignment, children)
     self.backgroundColor = {11, 11, 11, 0}
     self.activeBackgroundColor = {33, 33, 33, 0}
@@ -30,3 +34,5 @@ function Label:draw()
         love.graphics.print(self.text, td[1] + self.padding.x, td[2] + self.padding.y)
     end
 end
+
+return Label

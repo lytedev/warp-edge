@@ -1,8 +1,8 @@
 require("utils")
-vector = require("hump.vector")
-Class = require("hump.class")
+local vector = require("hump.vector")
+local Class = require("hump.class")
 
-GUIObject = Class{function(self, parent, position, size, alignment, children)
+local GUIObject = Class{function(self, parent, position, size, alignment, children)
     if type(parent) ~= "table" then
         parent = GUIParent
     end
@@ -49,7 +49,7 @@ end
 
 function GUIObject:update(dt)
     if self.parent == nil then
-        self.size = vector(config.screen.width, config.screen.height)
+        self.size = vector(love.graphics.getWidth(), love.graphics.getHeight())
     end
     for i = 1, #self.children, 1 do
         self.children[i]:update(dt)
@@ -89,4 +89,4 @@ end
 GUIParent = GUIObject(nil, vector(0, 0), vector(config.screen.width, config.screen.height), alignments.topleft)
 GUIParent.focus = GUIParent
 
--- return GameObject
+return GUIObject

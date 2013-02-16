@@ -38,9 +38,21 @@ end
 function GS.switch(to, ...)
 	assert(to, "Missing argument: Gamestate to switch to")
 	current:leave()
+	if current.onSwitchFrom then
+		current:onSwitchFrom()
+	end
+	if current.onSwitch then
+		current:onSwitch()
+	end
 	local pre = current
 	to:init()
 	to.init = nil
+	if to.onSwitch then
+		to:onSwitch()
+	end
+	if to.onSwitchTo then
+		to:onSwitchTo()
+	end
 	current = to
 	return current:enter(pre, ...)
 end
