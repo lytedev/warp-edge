@@ -1,8 +1,12 @@
+require("utils")
+local vector = require("hump.vector")
+local Class = require("hump.class")
+
 local GameObject = require("gameobjects.gameobject")
 local AnimationState = require("animations.animationstate")
 
-local Sprite = Class{inherits = {GameObject, AnimationState}, function(self, image, animationSet, position, size)
-    GameObject.construct(self, position, size)
+local Sprite = Class{inherits = {GameObject, AnimationState}, function(self, image, animationSet, size, position)
+    GameObject.construct(self, vector(0, 0), size, position)
     AnimationState.construct(self, image, animationSet, size)
 end}
 

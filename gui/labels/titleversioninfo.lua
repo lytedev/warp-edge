@@ -6,8 +6,8 @@ local MenuItem = require("gui.menuitem")
 local Label = require("gui.label")
 
 local titleVersionLabel = Label()
-titleVersionLabel.font = fonts.pixelserif
-titleVersionLabel.text = string.format("%s - %s\nCopyright (C) 2013 %s - All Rights Reserved",
+titleVersionLabel.font = assetManager:getFont("pxserif8")
+titleVersionLabel.text = string.format("%s - %s\nCopyright (C) 2013\n%s\nAll Rights Reserved",
     config.title, config.identityVersion, config.author)
 titleVersionLabel.color= {255, 255, 255, 50}
 titleVersionLabel.activeColor = titleVersionLabel.color

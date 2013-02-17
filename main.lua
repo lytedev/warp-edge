@@ -1,51 +1,30 @@
 require("utils")
--- lick = require("lick")
+local vector = require("hump.vector")
+local Class = require("hump.class")
 
-Class = require("hump.class")
-Gamestate = require("hump.gamestate")
+local AssetManager = require("assets.assetmanager")
+local Gamestate = require("hump.gamestate")
+local GUIObject = require("gui.guiobject")
+local Timer = require("hump.timer")
 
-require("gameobjects.gameobject")
-require("gameobjects.sprite")
-require("gui.menu")
-require("gui.label")
-require("gui.button")
-
-keybinds = {
-    up = "up", "w",
-    down = "down", "s"
-}
-fonts = {}
-spritesheets = {}
-animationSets = {}
-lastMousePosition = { 0, 0 }
-
-function love.conf(t)
-    t.console = true
-end
+-- Globals
+assetManager = AssetManager()
+config = config
+GUIParent = GUIObject(nil, vector(0, 0), vector(config.screen.width, config.screen.height), alignments.topleft)
 
 function love.load()
+    love.graphics.setColor({17, 255, 17, 255})
     love.graphics.setIcon(love.graphics.newImage("assets/img/logo.png"))
-    print(config.title .. " - v" .. config.identityVersion)
-    love.joystick.open(0)
-    GUIParent.children = {}
 
-    AssetManager = require("assets.assetmanager")
-    assetManager = AssetManager()
-
-    fonts.title = love.graphics.newFont("assets/ttf/opensans_light.ttf", 40)
-    fonts.sans = love.graphics.newFont("assets/ttf/opensans_light.ttf", 20)
-    fonts.sans32 = love.graphics.newFont("assets/ttf/opensans_light.ttf", 32)
-    fonts.sans24 = love.graphics.newFont("assets/ttf/opensans_light.ttf", 24)
-    fonts.pixel = love.graphics.newFont("assets/ttf/pf_tempesta_seven_condensed.ttf", 8)
-    fonts.pixel2 = love.graphics.newFont("assets/ttf/pf_tempesta_seven_condensed.ttf", 16)
-    fonts.pixel4 = love.graphics.newFont("assets/ttf/pf_tempesta_seven_condensed.ttf", 32)
-    fonts.pixelserif = love.graphics.newFont("assets/ttf/pf_westa_seven_condensed.ttf", 8)
-    fonts.pixelserif2 = love.graphics.newFont("assets/ttf/pf_westa_seven_condensed.ttf", 16)
-    fonts.pixelserif4 = love.graphics.newFont("assets/ttf/pf_westa_seven_condensed.ttf", 32)
-
-    --[[ local mainMenu = require("gui.menus.mainmenu")
-    Gamestate.registerEvents()
-    Gamestate.switch(mainMenu) ]]--
+    assetManager:loadFont("opensans_light", 40, "sans40")
+    assetManager:loadFont("opensans_light", 32, "sans32")
+    assetManager:loadFont("opensans_light", 24, "sans24")
+    assetManager:loadFont("pf_tempesta_seven_condensed", 8, "pixel8")
+    assetManager:loadFont("pf_tempesta_seven_condensed", 16, "pixel16")
+    assetManager:loadFont("pf_tempesta_seven_condensed", 32, "pixel32")
+    assetManager:loadFont("pf_westa_seven_condensed", 8, "pxserif8")
+    assetManager:loadFont("pf_westa_seven_condensed", 16, "pxserif16")
+    assetManager:loadFont("pf_westa_seven_condensed", 32, "pxserif32")
 
     Gamestate.registerEvents()
 
@@ -62,23 +41,25 @@ function love.load()
         Gamestate.switch(intro)
     end
 
-    local lastMouseX, lastMouseY = love.mouse.getPosition()
-    lastMousePosition = { x = lastMouseX, y = lastMouseY }
-    love.graphics.setBackgroundColor(11, 11, 11, 255)
-    isFullscreened = config.screen.fullscreen
-    -- print("Number of Joysticks: " .. love.joystick.getNumJoysticks())
+    love.graphics.isFullscreened = config.screen.fullscreen
+    updateLastMousePosition()
 end
 
 function love.update(dt)
-    local lastMouseX, lastMouseY = love.mouse.getPosition()
-    lastMousePosition = { x = lastMouseX, y = lastMouseY }
+    Timer.update(dt)
+    updateLastMousePosition()
 end
 
 function love.keypressed(key)
     if key == "f11" then
-        isFullscreened = not isFullscreened
-        love.graphics.setFullscreen(isFullscreened)
+        love.graphics.isFullscreened = not love.graphics.isFullscreened
+        love.graphics.setFullscreen(love.graphics.isFullscreened)
     end
+end
+
+function updateLastMousePosition()
+    local lastMouseX, lastMouseY = love.mouse.getPosition()
+    lastMousePosition = { x = lastMouseX, y = lastMouseY }
 end
 
 function love.graphics.setFullscreen(fs)

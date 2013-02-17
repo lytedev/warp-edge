@@ -1,0 +1,18 @@
+64, 64, 8
+tiles, tiles, mossstone, true
+tiles, tiles, mossstonefloor, false
+
+objects
+enemy.ghost, 60, 60
+
+backgrounds
+background.grass1, none, none, none, none, 0, 0, 1, false, false, none, none, 255, 255, 255, 255
+
+foregrounds
+background.darkmagic1, none, none, none, none, 10, 0, 1, false, false, none, none, 255, 255, 255, 50
+
+imglayer, level.test
+0,0,0,255,2
+255,255,255,255,1
+
+522 8251

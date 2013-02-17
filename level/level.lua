@@ -6,16 +6,31 @@ local Tile = require("level.tile")
 local TileGrid = require("level.tilegrid")
 local GameObject = require("gameobjects.gameobject")
 
-local Level = Class{function(self, width, height, tilesize)
+local Level = Class{function(self, width, height, tilesize, tileset)
     local w = width or 64
     local h = height or 64
     self.size = vector(w, h)
     self.tilesize = tilesize or 16
 
+    self.tileset = tileset or {
+        Tile(
+            assetManager:getImage("tiles"),
+            assetManager:getAnimationSet("tiles"),
+            vector(self.tilesize, self.tilesize),
+            "mossstone",
+            true),
+        Tile(
+            assetManager:getImage("tiles"),
+            assetManager:getAnimationSet("tiles"),
+            vector(self.tilesize, self.tilesize),
+            "mossstonefloor",
+            false)
+        }
+
     self.blankTile = Tile(assetManager.blankImage)
 
     self.objects = {}
-    self.layers = {TileGrid(self.size.x, self.size.y, self.tilesize)}
+    self.layers = {}
     self.backgrounds = {}
     self.foregrounds = {}
 end}
@@ -100,7 +115,19 @@ function Level:removeObject(i)
     table.remove(self.objects, i)
 end
 
+function Level:addTileType(tileType)
+    self.tileset[#self.tileset + 1] = tileType
+end
+
+function Level:removeTileType(tileTypeId)
+    table.remove(self.tileset, tileTypeId)
+end
+
 function Level:update(dt)
+    for i = 1, #self.tileset do
+        self.tileset[i]:update(dt)
+    end
+
     for i = 1, #self.backgrounds do
         self.backgrounds[i]:update(dt)
     end
@@ -109,7 +136,12 @@ function Level:update(dt)
         self.layers[i]:update(dt)
     end
 
+    local deleteme = {}
+
     for i = 1, #self.objects do
+        if self.objects[i].delete == true then
+            deleteme[#deleteme + 1] = i
+        end
         self.objects[i]:update(dt)
         for j = i + 1, #self.objects do
             self.objects[i]:collideWith(self.objects[j])
@@ -124,6 +156,10 @@ function Level:update(dt)
 
     for i = 1, #self.foregrounds do
         self.foregrounds[i]:update(dt)
+    end
+
+    for i = 1, #deleteme do
+        table.remove(self.objects, deleteme[i])
     end
 end
 

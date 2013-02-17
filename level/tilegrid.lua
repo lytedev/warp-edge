@@ -5,27 +5,48 @@ local Class = require("hump.class")
 local Tile = require("level.tile")
 
 local TileGrid = Class{function(self, width, height, tilesize, tileset)
-    local w = width or 32
-    local h = height or 32
-    self.size = vector(w, h)
-    self.tilesize = tilesize or 16
-
     self.tileset = tileset or {
         Tile(
-            spritesheets.tiles,
-            animationSets.tiles,
+            assetManager:getImage("tiles"),
+            assetManager:getAnimationSet("tiles"),
             vector(self.tilesize, self.tilesize),
             "mossstone",
             true),
         Tile(
-            spritesheets.tiles,
-            animationSets.tiles,
+            assetManager:getImage("tiles"),
+            assetManager:getAnimationSet("tiles"),
             vector(self.tilesize, self.tilesize),
             "mossstonefloor",
             false)
         }
+    self.tilesize = tilesize or 16
 
     self.blankTile = Tile(assetManager.blankImage)
+
+    if type(width) == "userdata" and type(height) == "table" then
+        local img = width
+        local pxt = height
+
+        local xmax = img:getWidth()
+        local ymax = img:getHeight()
+        self.size = vector(xmax, ymax)
+        self.tiles = {}
+
+        for x = 0, xmax - 1 do
+            for y = 0, ymax - 1 do
+                local r, g, b, a = img:getPixel(x, y)
+                local pixeln = string.format("%i,%i,%i,%i",r,g,b,a)
+                local tt = pxt[pixeln] or 0
+                self:setTile(x, y, tt)
+            end
+        end
+
+        return
+    end
+
+    local w = width or 32
+    local h = height or 32
+    self.size = vector(w, h)
 
     self.tiles = {}
 

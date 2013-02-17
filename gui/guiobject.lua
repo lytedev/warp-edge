@@ -86,7 +86,4 @@ function GUIObject:getAlignedDimensions(pretendSize)
     return getAlignedDimensions(self.position, pretendSize, self:getBounds(), self.alignment)
 end
 
-GUIParent = GUIObject(nil, vector(0, 0), vector(config.screen.width, config.screen.height), alignments.topleft)
-GUIParent.focus = GUIParent
-
 return GUIObject

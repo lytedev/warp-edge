@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"delet",
+				"deleteme"
+			],
+			[
+				"tile",
+				"tilesize"
+			],
+			[
+				"tiletyp",
+				"tileTypeId"
+			],
+			[
+				"pixe",
+				"pixelTypes"
+			],
+			[
+				"backgroun",
+				"backgrounds"
+			],
+			[
+				"gam",
+				"gameObjectFolder"
+			],
+			[
+				"asset",
+				"assetRoot"
+			],
+			[
+				"butt",
+				"buttonFont"
+			],
+			[
+				"tite",
+				"titleFont"
+			],
+			[
+				"coll",
+				"collisionOffset"
+			],
+			[
+				"colli",
+				"collisionOffset"
+			],
+			[
+				"dea",
+				"deathAnimS"
+			],
+			[
+				"update",
+				"updateLastMousePosition"
+			],
+			[
+				"anim",
+				"animationSets"
+			],
+			[
+				"anima",
+				"animationset"
+			],
+			[
+				"image",
+				"imageFolder"
+			],
+			[
 				"iden",
 				"identityVersion"
 			],
@@ -32,22 +96,6 @@
 				"getTileIdFromCoords"
 			],
 			[
-				"tile",
-				"tileTypeId"
-			],
-			[
-				"anim",
-				"animationSet"
-			],
-			[
-				"coll",
-				"collisionSize"
-			],
-			[
-				"colli",
-				"collisionOffset"
-			],
-			[
 				"til",
 				"tilesize"
 			],
@@ -66,10 +114,6 @@
 			[
 				"getTil",
 				"getTileTypeById"
-			],
-			[
-				"asset",
-				"AssetManager"
 			],
 			[
 				"else",
@@ -106,10 +150,6 @@
 			[
 				"current",
 				"currentFrames"
-			],
-			[
-				"anima",
-				"animationKeysTable"
 			],
 			[
 				"getCurr",
@@ -474,171 +514,57 @@
 			[
 				"backgr",
 				"background-color"
-			],
-			[
-				"inner",
-				"inner-slideshow-container"
-			],
-			[
-				"wind",
-				"window_focus"
-			],
-			[
-				"false",
-				"false"
-			],
-			[
-				"pack",
-				"packageObject"
-			],
-			[
-				"lytedev",
-				"lytedev_modx"
-			],
-			[
-				"config",
-				"config_file"
-			],
-			[
-				"confi",
-				"config_str"
-			],
-			[
-				"include",
-				"include_str"
-			],
-			[
-				"short",
-				"short-post-metadata"
-			],
-			[
-				"a",
-				"auto"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "level/level.lua",
-			"settings":
-			{
-				"buffer_size": 4767,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "level/tilegrid.lua",
-			"settings":
-			{
-				"buffer_size": 4869,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "level/background.lua",
-			"settings":
-			{
-				"buffer_size": 1642,
-				"line_ending": "Windows",
-				"name": "background"
-			}
-		},
-		{
-			"file": "gameobjects/character.lua",
-			"settings":
-			{
-				"buffer_size": 540,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 42 files for \" print(\"\n\nC:\\Users\\Daniel\\Google Drive\\projects\\warpedge\\main.lua:\n   25  \n   26  function love.load()\n   27:     print(config.title .. \" - v\" .. config.identityVersion)\n   28      love.joystick.open(0)\n   29      GUIParent.children = {}\n   ..\n   66      love.graphics.setBackgroundColor(11, 11, 11, 255)\n   67      isFullscreened = config.screen.fullscreen\n   68:     -- print(\"Number of Joysticks: \" .. love.joystick.getNumJoysticks())\n   69  end\n   70  \n   ..\n   85          local modes = love.graphics.getModes()\n   86          table.sort(modes, function(a, b) return a.width*a.height > b.width*b.height end)\n   87:         print(\"Fullscreening to \" .. modes[1].width .. \" x \" .. modes[1].height)\n   88          love.graphics.setMode(modes[1].width, modes[1].height, fs, config.screen.vsync, config.screen.fsaa)\n   89      else\n   90:         print(\"Windowed Mode\")\n   91          love.graphics.setMode(config.screen.width, config.screen.height, config.screen.fullscreen, config.screen.vsync, config.screen.fsaa)\n   92      end\n\nC:\\Users\\Daniel\\Google Drive\\projects\\warpedge\\animations\\animationstate.lua:\n   50      local a = self:getAnimation()\n   51      if a then\n   52:         -- print(\"Tried to fetch AnimationFrame with nil AnimationSet - returning image dimension frame\")\n   53          return a:getFrame(self.currentFrameID)\n   54      else\n\nC:\\Users\\Daniel\\Google Drive\\projects\\warpedge\\level\\background.lua:\n   36      for i = 0, 4 do\n   37          local os = (self.size * vector(0, i))\n   38:         -- print(type(os))\n   39          AnimationState.draw(self, pos + os)\n   40      end\n\nC:\\Users\\Daniel\\Google Drive\\projects\\warpedge\\level\\tilegrid.lua:\n  135                          output = output .. \" [COLLIDED]\"\n  136                      end\n  137:                     -- print(output)\n  138                  end\n  139              end\n\nC:\\Users\\Daniel\\Google Drive\\projects\\warpedge\\scenes\\game.lua:\n   24      animationSets.death = assetManager:loadAnimationSet(\"assets/animations/death.dat\")\n   25      animationSets.tiles = assetManager:loadAnimationSet(\"assets/animations/tiles.dat\")\n   26:     print(animationSets.tiles[\"grass1\"])\n   27  \n   28      self.player = Sprite(spritesheets.death, animationSets.death, vector(0, 0), vector(16, 24))\n\n8 matches across 5 files\n",
-			"settings":
-			{
-				"buffer_size": 2325,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "conf.lua",
-			"settings":
-			{
-				"buffer_size": 1178,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scenes/intro.lua",
-			"settings":
-			{
-				"buffer_size": 1637,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "misc/logo.lua",
-			"settings":
-			{
-				"buffer_size": 1428,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "hump/vector.lua",
-			"settings":
-			{
-				"buffer_size": 4590,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "gameobjects/gameobject.lua",
-			"settings":
-			{
-				"buffer_size": 1611,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "assets/assetmanager.lua",
 			"settings":
 			{
-				"buffer_size": 2309,
+				"buffer_size": 11484,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "assets/animations/death.dat",
+			"file": "assets/gameobject/enemy/ghost.lua",
 			"settings":
 			{
-				"buffer_size": 189,
+				"buffer_size": 343,
+				"line_ending": "Windows",
+				"name": "local Ghost"
+			}
+		},
+		{
+			"file": "assets/gameobject/enemy/deathbolt.lua",
+			"settings":
+			{
+				"buffer_size": 646,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "assets/animations/tiles.dat",
+			"file": "scenes/game.lua",
 			"settings":
 			{
-				"buffer_size": 47,
+				"buffer_size": 7943,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "gameobjects/sprite.lua",
+			"file": "utils.lua",
 			"settings":
 			{
-				"buffer_size": 556,
+				"buffer_size": 4090,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "level/tile.lua",
+			"file": "main.lua",
 			"settings":
 			{
-				"buffer_size": 586,
+				"buffer_size": 2686,
 				"line_ending": "Windows"
 			}
 		},
@@ -646,15 +572,7 @@
 			"file": "animations/animationstate.lua",
 			"settings":
 			{
-				"buffer_size": 6641,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "animations/animationset.lua",
-			"settings":
-			{
-				"buffer_size": 957,
+				"buffer_size": 6786,
 				"line_ending": "Windows"
 			}
 		},
@@ -667,59 +585,83 @@
 			}
 		},
 		{
-			"file": "scenes/game.lua",
+			"file": "level/tilegrid.lua",
 			"settings":
 			{
-				"buffer_size": 5475,
+				"buffer_size": 5506,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "main.lua",
+			"file": "level/level.lua",
 			"settings":
 			{
-				"buffer_size": 3323,
+				"buffer_size": 5727,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "utils.lua",
+			"file": "gameobjects/character.lua",
 			"settings":
 			{
-				"buffer_size": 3985,
+				"buffer_size": 880,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Platformer/Platformer/Level.cpp",
+			"file": "level/tile.lua",
 			"settings":
 			{
-				"buffer_size": 8217,
+				"buffer_size": 586,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Platformer/Platformer/GameObject.cpp",
+			"file": "gameobjects/gameobject.lua",
 			"settings":
 			{
-				"buffer_size": 4068,
+				"buffer_size": 3789,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Warp Edge/Warp Edge/Warp Edge/Background.cs",
+			"file": "gameobjects/sprite.lua",
 			"settings":
 			{
-				"buffer_size": 2210,
+				"buffer_size": 662,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "hump/camera.lua",
+			"file": "hump/vector.lua",
 			"settings":
 			{
-				"buffer_size": 3517,
+				"buffer_size": 4590,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/level/test.dat",
+			"settings":
+			{
+				"buffer_size": 391,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/animation/tiles.dat",
+			"settings":
+			{
+				"buffer_size": 42,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/animation/death.dat",
+			"settings":
+			{
+				"buffer_size": 468,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -747,39 +689,61 @@
 	},
 	"file_history":
 	[
-		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/labels/titleversioninfo.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/conf.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/animations/animationframe.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/assets/assetmanager.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/animations/animationstate.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/scenes/game.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/level/tilegrid.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/level/level.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/assets/animation/tiles.dat",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/assets/level/test.dat",
+		"/C/Users/Daniel/Documents/Visual Studio 2010/Projects/LyricScreen/LyricScreen/bin/Songs/testsong.txt",
+		"/C/Users/Daniel/Documents/Visual Studio 11/Projects/WraithMod/WraithMod/bin/x86/Release/Scripts/edit.lua",
+		"/C/Users/Daniel/Documents/Visual Studio 11/Projects/WraithMod/WraithMod/bin/x86/Release/Scripts/maxrange.lua",
+		"/C/Users/Daniel/Documents/Visual Studio 11/Projects/WraithMod/WraithMod/bin/x86/Release/Scripts/noclip.lua",
+		"/C/Users/Daniel/Documents/Visual Studio 11/Projects/WraithMod/WraithMod/bin/x86/Release/Scripts/pimpgun.lua",
+		"/C/Users/Daniel/Documents/Visual Studio 11/Projects/WraithMod/WraithMod/bin/x86/Release/Scripts/startup.lua",
+		"/C/Users/Daniel/Documents/Visual Studio 11/Projects/WraithMod/WraithMod/bin/x86/Release/Commands/god.lua",
+		"/C/Users/Daniel/Documents/Visual Studio 11/Projects/WraithMod/WraithMod/bin/x86/Release/Commands/item.lua",
+		"/C/Users/Daniel/Documents/Visual Studio 11/Projects/WraithMod/WraithMod/bin/x86/Release/Commands/playerfields.lua",
+		"/C/Users/Daniel/Documents/Visual Studio 11/Projects/WraithMod/WraithMod/bin/x86/Release/Commands/preset.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/level/tile.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/level/background.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/animations/animationstate.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/gameobjects/character.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/gameobjects/gameobject.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/gameobjects/sprite.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/scenes/game.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/hump/camera.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/assets/animation/death.dat",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/button.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/guiobject.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/main.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/conf.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/menus/mainmenu.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/labels/titleversioninfo.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/hump/vector.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/scenes/intro.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/misc/logo.lua",
+		"/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Warp Edge/Warp Edge/Warp Edge/Background.cs",
+		"/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Platformer/Platformer/GameObject.cpp",
+		"/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Platformer/Platformer/Level.cpp",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/animations/animation.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/animations/animationset.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/assets/animations/death.dat",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/utils.lua",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/assets/animations/tiles.dat",
+		"/C/Users/Daniel/Google Drive/projects/warpedge/animations/animationframe.lua",
 		"/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Warp Edge/Warp Edge/Warp Edge/Character.cs",
 		"/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Warp Edge/Warp Edge/Warp Edge/Level.cs",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/main.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/assets/animations/tiles.dat",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/assets/animations/death.dat",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/guiobject.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/hump/camera.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/level/level.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/menus/mainmenu.lua",
 		"/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Warp Edge/Warp Edge/Warp Edge/bin/x86/Debug/settings.txt",
 		"/C/Users/Public/Games/Minecraft/tekkbin/server.properties",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/gameobjects/gameobject.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/scenes/intro.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/README.md",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/utils.lua",
 		"/C/Users/Daniel/Documents/project_battery_design_doc",
 		"/C/Users/Daniel/Documents/dese.mo.gov_divcareered_documents_GED_application.pdf",
 		"/C/Users/Daniel/Documents/castlestoryfaq. You must have paid $25 on the Castle Story kick",
 		"/C/Users/Daniel/Documents/todo",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/misc/logo.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/misc/fader.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/gameobjects/sprite.lua",
 		"/C/Users/Public/Applications/Sublime/Data/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Public/Applications/Sublime/Data/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/hump/gamestate.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/button.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/menuitem.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/label.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/gui/menu.lua",
@@ -790,11 +754,8 @@
 		"/C/Users/Public/Applications/xampp/htdocs/dfr/style.css",
 		"/C/Users/Public/Applications/xampp/htdocs/dfr/fileupload.php",
 		"/C/Users/Daniel/Documents/wifi",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/animations/animation.lua",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/animations/animationset.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/lick.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/warpedge.sublime-project",
-		"/C/Users/Daniel/Google Drive/projects/warpedge/hump/vector.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/hump/ringbuffer.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/hump/class.lua",
 		"/C/Users/Daniel/Google Drive/projects/warpedge/utils/gamesettings.lua",
@@ -855,26 +816,7 @@
 		"/C/Users/Daniel/AppData/Roaming/LOVE/moduletest/settings.lua",
 		"/C/Users/Daniel/Google Drive/projects/love2d/test/main.lua",
 		"/C/Users/Daniel/Documents/projects/love2d/moduletest/menus/menu.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/moduletest.sublime-project",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/scenes/intro.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/subclass/logo.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/main.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/utils.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/scenes/menu.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/menus/quitmenu.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/menus/settingsmenu.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/menus/mainmenu.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/menus/playmenu",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/menus/menuitems/label.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/menus/menuitems/button.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/menus/menuitems/menuitem.lua",
-		"/C/Users/Public/Applications/Sublime/Data/Packages/SublimeLove/Love.sublime-build",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/scenes/mainmenu.lua",
-		"/C/Users/Public/Applications/Sublime/Data/Packages/SublimeLove/Love.tmLanguage",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/scenes/settingsmenu.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/scenes/scene.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/menus/top.lua",
-		"/C/Users/Daniel/Documents/projects/love2d/moduletest/subclass/keypress.lua"
+		"/C/Users/Daniel/Documents/projects/love2d/moduletest/moduletest.sublime-project"
 	],
 	"find":
 	{
@@ -893,6 +835,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"require",
+			"x",
+			"1",
+			"2",
+			"0",
+			"1",
+			"0",
+			"getHeight",
+			"collideWith(",
 			"print",
 			" print(",
 			"print(",
@@ -1011,16 +962,7 @@
 			"diamond",
 			"A",
 			"bag",
-			"giving",
-			"alchem",
-			"plate",
-			"content",
-			":hover",
-			"\n\n",
-			";",
-			"\n\n",
-			"C:/Users/Public/Applications/xampp/htdocs/lytedev/",
-			"\n\n"
+			"giving"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1028,6 +970,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"y",
+			"0",
+			"1",
+			"0",
+			"2",
 			"botright",
 			"topleft",
 			"botright",
@@ -1145,23 +1092,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "level/level.lua",
+					"file": "assets/assetmanager.lua",
 					"settings":
 					{
-						"buffer_size": 4767,
+						"buffer_size": 11484,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3390,
-								3390
+								0,
+								7
 							]
 						],
 						"settings":
@@ -1170,83 +1117,53 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 57.0,
-						"translation.y": 1537.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "level/tilegrid.lua",
+					"file": "assets/gameobject/enemy/ghost.lua",
 					"settings":
 					{
-						"buffer_size": 4869,
+						"buffer_size": 343,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4506,
-								4506
+								158,
+								158
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"auto_name": "local Ghost",
+							"syntax": "Packages/Lua/Lua.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1887.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "level/background.lua",
+					"file": "assets/gameobject/enemy/deathbolt.lua",
 					"settings":
 					{
-						"buffer_size": 1642,
+						"buffer_size": 646,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								560,
-								560
-							]
-						],
-						"settings":
-						{
-							"auto_name": "background",
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 468.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "gameobjects/character.lua",
-					"settings":
-					{
-						"buffer_size": 540,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								517,
-								517
+								646,
+								646
 							]
 						],
 						"settings":
@@ -1260,91 +1177,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
+					"file": "scenes/game.lua",
 					"settings":
 					{
-						"buffer_size": 2325,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										137,
-										144
-									],
-									[
-										395,
-										402
-									],
-									[
-										651,
-										658
-									],
-									[
-										870,
-										877
-									],
-									[
-										1214,
-										1221
-									],
-									[
-										1547,
-										1554
-									],
-									[
-										1822,
-										1829
-									],
-									[
-										2150,
-										2157
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 312.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "conf.lua",
-					"settings":
-					{
-						"buffer_size": 1178,
+						"buffer_size": 7943,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								759,
-								759
+								7040,
+								7040
 							]
 						],
 						"settings":
@@ -1354,25 +1199,87 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 117.0,
+						"translation.y": 2294.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "scenes/intro.lua",
+					"buffer": 4,
+					"file": "utils.lua",
 					"settings":
 					{
-						"buffer_size": 1637,
+						"buffer_size": 4090,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1577,
-								1578
+								166,
+								166
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "main.lua",
+					"settings":
+					{
+						"buffer_size": 2686,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								266,
+								266
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "animations/animationstate.lua",
+					"settings":
+					{
+						"buffer_size": 6786,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
 							]
 						],
 						"settings":
@@ -1389,289 +1296,6 @@
 				},
 				{
 					"buffer": 7,
-					"file": "misc/logo.lua",
-					"settings":
-					{
-						"buffer_size": 1428,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								188,
-								188
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "hump/vector.lua",
-					"settings":
-					{
-						"buffer_size": 4590,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 483.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 3,
-			"sheets":
-			[
-				{
-					"buffer": 9,
-					"file": "gameobjects/gameobject.lua",
-					"settings":
-					{
-						"buffer_size": 1611,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								716,
-								716
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "assets/assetmanager.lua",
-					"settings":
-					{
-						"buffer_size": 2309,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								92
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "assets/animations/death.dat",
-					"settings":
-					{
-						"buffer_size": 189,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								125,
-								125
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "assets/animations/tiles.dat",
-					"settings":
-					{
-						"buffer_size": 47,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								47,
-								47
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "gameobjects/sprite.lua",
-					"settings":
-					{
-						"buffer_size": 556,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								437,
-								437
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 14,
-					"file": "level/tile.lua",
-					"settings":
-					{
-						"buffer_size": 586,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								152,
-								152
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "animations/animationstate.lua",
-					"settings":
-					{
-						"buffer_size": 6641,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								519,
-								519
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 392.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "animations/animationset.lua",
-					"settings":
-					{
-						"buffer_size": 957,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 17,
 					"file": "animations/animation.lua",
 					"settings":
 					{
@@ -1682,8 +1306,36 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								226,
+								226
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 107.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "level/tilegrid.lua",
+					"settings":
+					{
+						"buffer_size": 5506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								996,
+								996
 							]
 						],
 						"settings":
@@ -1693,7 +1345,168 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 78.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "level/level.lua",
+					"settings":
+					{
+						"buffer_size": 5727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3940,
+								3940
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1407.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "gameobjects/character.lua",
+					"settings":
+					{
+						"buffer_size": 880,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								633,
+								633
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "level/tile.lua",
+					"settings":
+					{
+						"buffer_size": 586,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "gameobjects/gameobject.lua",
+					"settings":
+					{
+						"buffer_size": 3789,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2615,
+								2616
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 624.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "gameobjects/sprite.lua",
+					"settings":
+					{
+						"buffer_size": 662,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								448,
+								448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "hump/vector.lua",
+					"settings":
+					{
+						"buffer_size": 4590,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21,
+								22
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1050.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1705,194 +1518,79 @@
 			"sheets":
 			[
 				{
-					"buffer": 18,
-					"file": "scenes/game.lua",
+					"buffer": 15,
+					"file": "assets/level/test.dat",
 					"settings":
 					{
-						"buffer_size": 5475,
+						"buffer_size": 391,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4818,
-								4818
+								381,
+								381
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 777.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 19,
-					"file": "main.lua",
+					"buffer": 16,
+					"file": "assets/animation/tiles.dat",
 					"settings":
 					{
-						"buffer_size": 3323,
+						"buffer_size": 42,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								632,
-								632
+								35,
+								35
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 928.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 20,
-					"file": "utils.lua",
+					"buffer": 17,
+					"file": "assets/animation/death.dat",
 					"settings":
 					{
-						"buffer_size": 3985,
+						"buffer_size": 468,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1014,
-								1014
+								448,
+								448
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1620.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Platformer/Platformer/Level.cpp",
-					"settings":
-					{
-						"buffer_size": 8217,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2961,
-								2961
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1822.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Platformer/Platformer/GameObject.cpp",
-					"settings":
-					{
-						"buffer_size": 4068,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3695,
-								3695
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1722.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "/C/Users/Daniel/Documents/Visual Studio 2010/Projects/Warp Edge/Warp Edge/Warp Edge/Background.cs",
-					"settings":
-					{
-						"buffer_size": 2210,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1405,
-								1405
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 64.0,
-						"translation.y": 385.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 24,
-					"file": "hump/camera.lua",
-					"settings":
-					{
-						"buffer_size": 3517,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3335,
-								3335
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1263.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1925,35 +1623,29 @@
 				1
 			],
 			[
-				0,
-				1,
-				1,
-				2
-			],
-			[
-				1,
-				1,
 				2,
-				2
+				0,
+				3,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.503963806188,
+			0.818785755984,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
-			0.5,
 			1.0
 		]
 	},
 	"menu_visible": false,
 	"output.exec":
 	{
-		"height": 193.0
+		"height": 78.0
 	},
 	"replace":
 	{

@@ -5,14 +5,13 @@ local Class = require("hump.class")
 local Camera = require("hump.camera")
 local AnimationState = require("animations.animationstate")
 
-local Background = Class{inherits = {AnimationState}, function(self, image, animationSet, size, initialKey)
+local Background = Class{inherits = {AnimationState}, function(self, image, animationSet, size, initialKey, slide, parallax, flipX, flipY, offset)
     AnimationState.construct(self, image, animationSet, size, initialKey)
-    self.alternateFlipsX = false
-    self.alternateFlipsY = false
-    self.offset = vector(0, 0)
-    --self.slide = vector(0, 0)
-    self.slide = vector(10, 10)
-    self.parallax = 4
+    self.slide = slide or vector(10, 10)
+    self.parallax = parallax or 4
+    self.alternateFlipsX = flipX or false
+    self.alternateFlipsY = flipY or false
+    self.offset = offset or vector(0, 0)
 end}
 
 function Background:update(dt)

@@ -1,6 +1,11 @@
 local vector = require("hump.vector")
 local Class = require("hump.class")
 
+function rerequire(module)
+    package.loaded[module] = nil
+    return require(module)
+end
+
 local __newImage = love.graphics.newImage -- old function
 function love.graphics.newImage( ... ) -- new function that sets nearest filter
    local img = __newImage( ... ) -- call old function with all arguments to this function
@@ -33,7 +38,7 @@ function csvStringToTable(str)
     local t = {}
     local i = 1
     for v in csv do
-        t[i] = v
+        t[i] = string.trim(v)
         i = i + 1
     end
     return t

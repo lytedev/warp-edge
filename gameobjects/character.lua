@@ -4,10 +4,14 @@ local Class = require("hump.class")
 
 local GameObject = require("gameobjects.gameobject")
 local AnimationState = require("animations.animationstate")
-local Sprite = require("animations.sprite")
+local Sprite = require("gameobjects.sprite")
 
-local Character = Class{inherits = {Sprite}, function(self, image, animationSet, position, size)
-    Sprite.construct(self, image, animationSet, size)
+local Character = Class{inherits = {Sprite}, function(self, image, animationSet, size, collisionOffset, collisionSize, position, name)
+    Sprite.construct(self, image, animationSet, size, position)
+    self.name = name or "Character"
+    self.collisionOffset = collisionOffset or self.collisionOffset
+    self.collisionSize = collisionSize or self.collisionSize
+    self.speed = 80
 end}
 
 function Character:update(dt)
