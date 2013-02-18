@@ -21,10 +21,10 @@
 
 ## Variable Types
 
-$ - String
-# - Number
-^ - Boolean ["true" | "false" (non-case-sensitive), ~0 or 0]
-* - Table (see variable name for type - example: animationFrame2 implies an AnimationFrame table)
+\$ - String
+\# - Number
+\^ - Boolean ["true" | "false" (non-case-sensitive), ~0 or 0]
+\* - Table (see variable name for type - example: animationFrame2 implies an AnimationFrame table)
 No Type - Must appear exactly as denoted (Example: [layer] indicates that the string "layer" at this point in the file is optional.)
 
 ## Variable Formats
