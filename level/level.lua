@@ -10,7 +10,7 @@ local Level = Class{function(self, width, height, tilesize, tileset)
     local w = width or 64
     local h = height or 64
     self.size = vector(w, h)
-    self.tilesize = tilesize or 16
+    self.tilesize = tilesize or 8
 
     self.tileset = tileset or {
         Tile(
