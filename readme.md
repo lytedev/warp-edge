@@ -1,3 +1,9 @@
+# Screenshots
+
+![Title screen][title_screen]
+
+![Test level][test_level]
+
 # TODOs
 
 * Combat
@@ -105,3 +111,7 @@
 [#r2], <[#g2]>, <[#b2]>, <[#a2]>, <[#tileTypeId2]>
 [#r3], <[#g3]>, <[#b3]>, <[#a3]>, <[#tileTypeId3]>
 [#rN...], <[#gN...]>, <[#bN...]>, <[#aN...]>, <[#tileTypeIdN...]>
+
+
+[test_level]: http://i.imgur.com/m3xr8Xq.png
+[title_screen]: http://i.imgur.com/lM09KUW.png
