@@ -8,6 +8,7 @@ local GUIObject = require("gui.guiobject")
 local Timer = require("hump.timer")
 
 -- Globals
+debugText = ""
 assetManager = AssetManager()
 config = config
 GUIParent = GUIObject(nil, vector(0, 0), vector(config.screen.width, config.screen.height), alignments.topleft)

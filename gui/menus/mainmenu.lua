@@ -33,6 +33,8 @@ function mainMenu:init()
     title.font = titleFont
     title.text = config.title
 
+    self.focusable = {}
+
     local button = Button(self.menu, vector(-self.menu.position.x, 80))
     button.text = "Play"
     button.font = buttonFont
@@ -127,6 +129,12 @@ function mainMenu:draw()
     a = self.overlayFader.val
     love.graphics.setColor({r, g, b, a})
     love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+
+    love.graphics.setColor({255, 255, 255, 255})
+    love.graphics.setFont(assetManager:getFont("pixel8"))
+    debugText = debugText .. "FPS: " .. love.timer.getFPS() .. "\n"
+    love.graphics.print(debugText, 5, 5)
+    debugText = ""
 end
 
 function mainMenu:keypressed(key)
@@ -136,6 +144,15 @@ function mainMenu:keypressed(key)
 
     if key == "up" or key == "w" then
         -- TODO Scrolling with keys
+    end
+
+    if key == "down" or key == "s" then
+
+    end
+
+    if key == "return" or key == "x" or key == "l" then
+        print(type(GUIParent.focus))
+        GUIParent.focus:onSelect()
     end
 end
 

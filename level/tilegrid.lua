@@ -156,7 +156,7 @@ function TileGrid:collideObjectWithTiles(g)
                 local leftEdgeDiff = math.abs((x + 1) * self.tilesize - gpposition.x)
                 local rightEdgeDiff = math.abs(x * self.tilesize - (gpposition.x + g.collisionSize.x))
                 local topEdgeDiff = math.abs((y + 1) * self.tilesize - gpposition.y)
-                local edgeDiffSens = 2
+                local edgeDiffSens = 4
 
                 if (leftEdgeDiff < edgeDiffSens or
                     rightEdgeDiff < edgeDiffSens) and
@@ -167,9 +167,8 @@ function TileGrid:collideObjectWithTiles(g)
 
                 if tryCollide then
                     local tpos = vector(x * self.tilesize, y * self.tilesize)
-                    local output = string.format("Checking collision with tile at %i, %i", tpos.x, tpos.y)
                     if g:collide(tpos, tsize) then
-                        output = output .. " [COLLIDED]"
+
                     end
                     -- print(output)
                 end

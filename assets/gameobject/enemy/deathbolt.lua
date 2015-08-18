@@ -13,7 +13,7 @@ DeathBolt.velocity = vector(0, 0)
 DeathBolt.collisionSize = vector(16, 12)
 DeathBolt.collisionOffset = vector(0, 0)
 DeathBolt.friction = 0
-DeathBolt.speed = 100
+DeathBolt.speed = 200
 DeathBolt.static = false
 
 function DeathBolt:onCollide(pos, size)
