@@ -15,7 +15,7 @@ function love.conf(t)
     t.author = "Daniel \"lytedev\" Flanagan"
     t.url = "http://lytedev.com"
     t.identity = "warp_edge"
-    t.version = "0.8.0"
+    t.version = "0.9.2"
 
     -- Versioning System:
     -- Alpha X.X.X
@@ -29,19 +29,19 @@ function love.conf(t)
     t.release = false -- Are you crazy or something?
     t.console = true
 
-    t.screen.scaleHeight = 180 * 1
-    t.screen.fullscreen = false
-    if t.screen.fullscreen then
-        t.screen.width = 1920
-        t.screen.height = 1080
+    t.window.scaleHeight = 180 * 1
+    t.window.fullscreen = false
+    if t.window.fullscreen then
+        t.window.width = 1920
+        t.window.height = 1080
     else
-        t.screen.width = 640
-        t.screen.height = 360
+        t.window.width = 640
+        t.window.height = 360
     end
-    --t.screen.width = 800
-    --t.screen.height = 600
-    t.screen.vsync = true
-    t.screen.fsaa = 0
+    --t.window.width = 800
+    --t.window.height = 600
+    t.window.vsync = true
+    t.window.fsaa = 0
 
     t.modules.joystick = true
     t.modules.audio = true

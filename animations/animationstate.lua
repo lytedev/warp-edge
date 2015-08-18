@@ -136,9 +136,9 @@ end
 function AnimationState:draw(position)
   love.graphics.setColor(self.overlay)
 
-  --love.graphics.drawq(self.image, self.quad, math.floor(position.x + self.offset.x + 0.5), math.floor(position.y + self.offset.y + 0.5))
+  --love.graphics.draw(self.image, self.quad, math.floor(position.x + self.offset.x + 0.5), math.floor(position.y + self.offset.y + 0.5))
 
-  love.graphics.drawq(self.image, self.quad, (position.x + self.offset.x), (position.y + self.offset.y))
+  love.graphics.draw(self.image, self.quad, (position.x + self.offset.x), (position.y + self.offset.y))
 end
 
 return AnimationState

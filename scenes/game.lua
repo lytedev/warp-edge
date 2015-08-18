@@ -81,7 +81,7 @@ function game:addEnemy()
 end
 
 function game:update(dt)
-  self.camera:zoomTo(love.graphics.getHeight() / config.screen.scaleHeight)
+  self.camera:zoomTo(love.graphics.getHeight() / config.window.scaleHeight)
 
   --[[ debugText = ""
 

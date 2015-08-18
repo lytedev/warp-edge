@@ -11,11 +11,11 @@ local Timer = require("hump.timer")
 debugText = ""
 assetManager = AssetManager()
 config = config
-GUIParent = GUIObject(nil, vector(0, 0), vector(config.screen.width, config.screen.height), alignments.topleft)
+GUIParent = GUIObject(nil, vector(0, 0), vector(config.window.width, config.window.height), alignments.topleft)
 
 function love.load()
     love.graphics.setColor({17, 255, 17, 255})
-    love.graphics.setIcon(love.graphics.newImage("assets/img/logo.png"))
+    love.window.setIcon(love.image.newImageData("assets/img/logo.png"))
 
     assetManager:loadFont("opensans_light", 40, "sans40")
     assetManager:loadFont("opensans_light", 32, "sans32")
@@ -42,7 +42,7 @@ function love.load()
         Gamestate.switch(intro)
     end
 
-    love.graphics.isFullscreened = config.screen.fullscreen
+    love.graphics.isFullscreened = config.window.fullscreen
     updateLastMousePosition()
 end
 
@@ -68,10 +68,10 @@ function love.graphics.setFullscreen(fs)
         local modes = love.graphics.getModes()
         table.sort(modes, function(a, b) return a.width*a.height > b.width*b.height end)
         print("Fullscreening to " .. modes[1].width .. " x " .. modes[1].height)
-        love.graphics.setMode(modes[1].width, modes[1].height, fs, config.screen.vsync, config.screen.fsaa)
+        love.graphics.setMode(modes[1].width, modes[1].height, fs, config.window.vsync, config.window.fsaa)
     else
         print("Windowed Mode")
-        love.graphics.setMode(config.screen.width, config.screen.height, config.screen.fullscreen, config.screen.vsync, config.screen.fsaa)
+        love.graphics.setMode(config.window.width, config.window.height, config.window.fullscreen, config.window.vsync, config.window.fsaa)
     end
 end
 
