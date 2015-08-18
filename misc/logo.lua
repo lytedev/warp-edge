@@ -42,7 +42,7 @@ function Logo:draw()
     local qx, qy, qw, qh = self.quad:getViewport()
     local x = (love.graphics.getWidth() / 2) - (qw / 2)
     local y = (love.graphics.getHeight() / 2) - (qh / 2)
-    love.graphics.drawq(self.image, self.quad, x, y)
+    love.graphics.draw(self.image, self.quad, x, y)
     if self.onDraw then
         self:onDraw(self)
     end

@@ -35,7 +35,7 @@ function Intro:init()
         local xx = (love.graphics.getWidth() / 2) - (qw / 2) - 0
         local yy = (love.graphics.getHeight() / 2) + (qh / 2) - 64
         love.graphics.setColor({0, 0, 0, 255})
-        love.graphics.drawq(self.gradient, self.gradientQuad, xx, yy, 0, 128, 16)
+        love.graphics.draw(self.gradient, self.gradientQuad, xx, yy, 0, 128, 16)
     end
 
     lytedevLogo.onFinished = function(self)

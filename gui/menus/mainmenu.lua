@@ -90,7 +90,7 @@ end
 function mainMenu:draw()
     -- getAlignedDimensions(position, size, bounds, alignment)
     love.graphics.setColor({255, 255, 255, 255})
-    local scale = love.graphics.getHeight() / config.screen.scaleHeight
+    local scale = love.graphics.getHeight() / config.window.scaleHeight
 
     local bdd = getAlignedDimensions(vector(0, 0),
         vector(self.backdrop:getWidth(), self.backdrop:getHeight()) * scale,
@@ -111,7 +111,7 @@ function mainMenu:draw()
         alignments.bottomright)
     local pos = vector(math.floor(sdm[1]), math.floor(sdm[2] + (math.cos(self.swordHover) * (5 * scale))))
     pos = pos
-    love.graphics.drawq(self.sword, q, pos.x, pos.y, math.rad(270), scale, scale, sw / 2, sh / 2)
+    love.graphics.draw(self.sword, q, pos.x, pos.y, math.rad(270), scale, scale, sw / 2, sh / 2)
 
     love.graphics.setColor({0, 0, 0, 220})
     local menubgp = self.menu.position

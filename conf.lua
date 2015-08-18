@@ -1,8 +1,8 @@
 config = {}
 
 function love.conf(t)
-    t.skipintro = true
-    t.skiptogame = true
+    t.skipintro = false
+    t.skiptogame = false
     t.defaultsettings = true
 
     -- love.graphics.setBackgroundColor(0, 0, 0, 255)
