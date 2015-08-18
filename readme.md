@@ -41,6 +41,9 @@
 
 # File Formats
 
+There are some custom file formats used by this project that are documented
+below.
+
 ## AnimationFrame Format
 <#sourceX>, <#sourceY>, [#width], [#height], [#offsetX], [#offsetY]
 
