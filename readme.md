@@ -18,6 +18,8 @@
 
 # Format Key
 
+Documentation for the documentation isn't a good sign ;)
+
 ## Variable Indicators
 
 <> - Required variable
